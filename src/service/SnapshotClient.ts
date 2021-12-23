@@ -56,7 +56,7 @@ export class SnaphsotClient {
     /*
         Creates the proposal on snapshot and returns the created proposal id.
     */
-    public async createProposal(proposal: SnapshotProposal, space: string) {
+    public async createProposal(proposal: SnapshotProposal, space: string): Promise<string> {
         const account = AccountProvider.instance().getAccount();
         const address = await account.getAddress();
         const block = await AccountProvider.instance().getBlock();
@@ -78,15 +78,15 @@ export class SnaphsotClient {
         return response.id;
     }
 
-    private getEndDate(proposal: SnapshotProposal, space: string) {
+    private getEndDate(proposal: SnapshotProposal, space: string): number {
         return proposal.end - (config.spaces.get(space)?.voteClose || 0);
     }
 
-    private formatTitle(proposal: SnapshotProposal, space: string) {
+    private formatTitle(proposal: SnapshotProposal, space: string): string {
         return `[EXTERNAL][${config.spaces.get(space)?.name}] ${proposal.title}`;
     }
 
-    private formatBody(proposal: SnapshotProposal) {
+    private formatBody(proposal: SnapshotProposal): string {
         return `${proposal.body}\n\n\nOriginal proposal: ${proposal.link}`;
     }
 

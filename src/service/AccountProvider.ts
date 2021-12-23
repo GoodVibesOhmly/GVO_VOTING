@@ -16,7 +16,7 @@ export class AccountProvider {
         this.account = new ethers.Wallet(pk, this.provider); /* Ethereum mainnet provider */
     }
 
-    public static instance() {
+    public static instance(): AccountProvider {
         if (!this.singleton){
             this.singleton = new AccountProvider();
         }

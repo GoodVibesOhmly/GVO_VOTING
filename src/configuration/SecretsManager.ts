@@ -19,7 +19,7 @@ export class SecretsManager {
         });
     }
 
-    public static instance() {
+    public static instance(): SecretsManager {
         if(!this.singleton){
             this.singleton = new SecretsManager();
         }

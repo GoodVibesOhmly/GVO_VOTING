@@ -13,14 +13,14 @@ export class DiscordClient {
         this.client.login(SecretsManager.instance().getSecrets().discordToken);
     }
 
-    public static instance() {
+    public static instance(): DiscordClient {
         if (!this.singleton) {
             this.singleton = new DiscordClient();
         }
         return this.singleton;
     }
 
-    public newMessage(message: string) {
+    public newMessage(message: string): void {
         this.client
         .channels
         .fetch(config.discordChannelId)

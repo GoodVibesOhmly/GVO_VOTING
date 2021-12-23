@@ -18,7 +18,7 @@ export class DuplicatorService {
         this.discordClient = DiscordClient.instance();
     }
 
-    public static instance() {
+    public static instance(): DuplicatorService {
         if (!this.singleton) {
             this.singleton = new DuplicatorService();
         }

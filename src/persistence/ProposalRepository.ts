@@ -76,7 +76,7 @@ class ProposalRepository {
         return snapshot;
     }
 
-    private logErrors(message:String,err: any) {
+    private logErrors(message:String,err: any): void {
         if (err) {
             console.log(message, err)
         }
