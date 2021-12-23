@@ -21,12 +21,9 @@ Resources:
             Method: get
 
 Outputs:
-  SnapshotDuplicatorApi:
-    Description: "API Gateway endpoint URL for Prod stage for Duplicator function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/snapshot/duplicate"
   SnapshotDuplicatorApiFunction:
-    Description: "Hello World Lambda Function ARN"
+    Description: "Snapshot Duplicator Lambda Function ARN"
     Value: !GetAtt SnapshotDuplicatorApiFunction.Arn
   SnapshotDuplicatorApiFunctionIamRole:
-    Description: "Implicit IAM Role created for Hello World function"
+    Description: "Implicit IAM Role created for Snapshot Duplicator function"
     Value: !GetAtt SnapshotDuplicatorApiFunctionRole.Arn
