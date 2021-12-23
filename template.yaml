@@ -14,11 +14,10 @@ Resources:
       Handler: dist/functions/function.lambdaHandler
       Runtime: nodejs14.x
       Events:
-        SnapshotDuplicatorApi:
-          Type: Api
+        InvocationLevel:
+          Type: Schedule
           Properties:
-            Path: /snapshot/duplicate
-            Method: get
+            Schedule: cron(0/20 * ? * * *)
 
 Outputs:
   SnapshotDuplicatorApiFunction:
