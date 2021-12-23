@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "compile": "tsc"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.44.0",
+    "@ethersproject/providers": "^5.5.1",
+    "@snapshot-labs/snapshot.js": "^0.3.22",
+    "@types/aws-lambda": "^8.10.88",
+    "aws-sdk": "^2.1046.0",
+    "axios": "^0.24.0",
+    "discord.js": "^12.5.3",
+    "ethereumjs-wallet": "^1.0.2",
+    "ethers": "^5.5.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  }
+}

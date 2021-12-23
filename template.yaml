@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Snapshot Duplicator
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  SnapshotDuplicatorApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/functions/function.lambdaHandler
+      Runtime: nodejs14.x
+      Events:
+        SnapshotDuplicatorApi:
+          Type: Api
+          Properties:
+            Path: /snapshot/duplicate
+            Method: get
+
+Outputs:
+  SnapshotDuplicatorApi:
+    Description: "API Gateway endpoint URL for Prod stage for Duplicator function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/snapshot/duplicate"
+  SnapshotDuplicatorApiFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt SnapshotDuplicatorApiFunction.Arn
+  SnapshotDuplicatorApiFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt SnapshotDuplicatorApiFunctionRole.Arn
