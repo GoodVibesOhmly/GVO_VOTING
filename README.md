@@ -56,6 +56,7 @@ It expects the following secrets structure:
 This project was build using node14 so make sure to set your local node version to 14.  
 
 ### Building
+`npm install`
 `npm run compile`
 ### AWS deployment
 `sam deploy --guided`
