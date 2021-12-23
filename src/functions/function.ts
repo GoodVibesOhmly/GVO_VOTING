@@ -1,15 +1,15 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import { CloudFrontResponseResult, ScheduledEvent } from "aws-lambda";
 import SecretsManager from "../configuration/SecretsManager";
 import DuplicatorService from "../service/DuplicatorService";
 
 
-export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const lambdaHandler = async (event: ScheduledEvent): Promise<CloudFrontResponseResult> => {
   console.log("Starting.....");
   /* Get all the secrets into memory first */
   await SecretsManager.instance().fetchSecrets();
   const result = await DuplicatorService.instance().poll();
   return {
-    statusCode: 200,
+    status: '200',
     body: JSON.stringify(result)
   };
 }
